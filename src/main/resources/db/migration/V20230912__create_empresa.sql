@@ -1,4 +1,4 @@
 CREATE TABLE empresa(
-    id SERIAL NOT NULL,
+    id SERIAL,
     PRIMARY KEY (id)
 );
