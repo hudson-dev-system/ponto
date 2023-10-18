@@ -1,6 +1,6 @@
 package com.pontoeletronico.api.enums;
 
-public enum Tipo {
+public enum TipoLancamento {
 
 	INICIO_TURNO,
 	FIM_TURNO,
