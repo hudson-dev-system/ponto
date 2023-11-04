@@ -7,7 +7,7 @@ import com.pontoeletronico.api.entitys.Empresa;
 
 
 
-public interface EmpresaRepostiroy extends JpaRepository<Empresa, Long>{
+public interface EmpresaRepostirory extends JpaRepository<Empresa, Long>{
 	
 	@Transactional(readOnly = true)
 	Empresa findByCnpj(String cnpj);
