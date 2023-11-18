@@ -12,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 @Entity
@@ -55,7 +57,7 @@ public class Empresa implements Serializable{
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -85,4 +87,21 @@ public class Empresa implements Serializable{
 		return funcionarios;
 	}
 	
+	@PreUpdate
+	public void preUpdate() {
+		this.dataAtualizacao = new Date();
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		final Date agora = new Date();
+		this.dataCadastro = agora;
+		this.dataAtualizacao = agora;
+	}
+
+	@Override
+	public String toString() {
+		return "Empresa [id=" + id + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", dataCadastro="
+				+ dataCadastro + ", dataAtualizacao=" + dataAtualizacao + ", funcionarios=" + funcionarios + "]";
+	}
 }

@@ -95,12 +95,12 @@ public class CadastroPjController {
 		return funcionario;
 	}
 
-	private Empresa converterEmpresa(@Valid CadastroPjDTO cadastroPjDTO) {
+	private Empresa converterEmpresa(CadastroPjDTO cadastroPjDTO) {
 		Empresa empresa = new Empresa();
 		
 		empresa.setCnpj(cadastroPjDTO.getCnpj());
 		empresa.setRazaoSocial(cadastroPjDTO.getRazaoSocial());
-		return null;
+		return empresa;
 	}
 
 	private void validarDados(@Valid CadastroPjDTO cadastroPjDTO, BindingResult bindingResult) {

@@ -5,8 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pontoeletronico.api.entitys.Empresa;
 
-
-
 public interface EmpresaRepostirory extends JpaRepository<Empresa, Long>{
 	
 	@Transactional(readOnly = true)

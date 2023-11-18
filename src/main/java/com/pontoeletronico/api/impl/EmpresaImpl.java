@@ -27,8 +27,8 @@ public class EmpresaImpl implements EmpresaService{
 
 	@Override
 	public Empresa persistir(Empresa empresa) {
-		log.info("SALVANDO EMPRESA NO DB {} ", empresa);
-		return empresaRepostirory.save(empresa);
+		log.info("SALVANDO EMPRESA NO DB {} ", empresa.toString());
+		return this.empresaRepostirory.save(empresa);
 	}
 
 }
