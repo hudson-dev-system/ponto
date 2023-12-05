@@ -31,16 +31,15 @@ public class FuncionarioImpl implements FuncionarioService{
 		return Optional.ofNullable(this.funcionarioRepository.findByCpf(cpf));
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public Optional<Funcionario> buscarId(Long id) {
 		log.info("BUSCANDO FUNCIONARIO PELO ID {} ", id);
-		return Optional.ofNullable(this.funcionarioRepository.getOne(id));
+		return Optional.ofNullable(this.funcionarioRepository.findById(id).get());
 	}
 
 	@Override
 	public Funcionario persistir(Funcionario funcionario) {
-		log.info("SALVANDO FUNCIONARIO NO DB {} ", funcionario);
+		log.info("SALVANDO FUNCIONARIO NO DB DE ID {} ", funcionario.getId());
 		return this.funcionarioRepository.save(funcionario);
 	}
 

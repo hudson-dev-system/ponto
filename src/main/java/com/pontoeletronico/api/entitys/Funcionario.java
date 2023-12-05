@@ -200,5 +200,4 @@ public class Funcionario implements Serializable{
 				+ lancamentos + ", empresa=" + empresa + ", perfil=" + perfil + ", valorHora=" + valorHora
 				+ ", qntHoraAlmoco=" + qntHoraAlmoco + ", qntHoraTrabalhada=" + qntHoraTrabalhada + "]";
 	}
-	
 }
