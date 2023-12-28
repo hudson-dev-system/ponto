@@ -205,7 +205,31 @@ public class LancamentoController {
 		
 		this.lancamentoService.persistir(lancamento);
 		response.setData(this.convertLancamentoDTO(lancamento));
+		response.setLancamentos(TipoLancamento.values());
 		
 		return ResponseEntity.ok(response);
 	}
+	
+	@GetMapping(value = "/tipo-lancamentos")
+	public ResponseEntity<Response<TipoLancamento[]>> buscarLancamento(){
+		log.info("BUSCANDO TODOS LANCAMENTOS:");
+		
+		Response<TipoLancamento[]> resp = new Response<TipoLancamento[]>();
+		resp.setLancamentos(TipoLancamento.values());
+		
+		if(resp.getLancamentos().length == 0) {
+			log.info("NÃO FOI LOCALIZADO NENHUM LANCAMENTO.");
+			resp.getErros().add("Lancamentos vazio.");
+			return ResponseEntity.badRequest().body(resp);
+		}
+		
+		return ResponseEntity.ok(resp);
+	}
 }
+
+
+
+
+
+
+
