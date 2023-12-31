@@ -4,6 +4,6 @@ jdk:
 before_install:
   - chmod +x mvnw
 services:
-  - postgresql
+  - docker
 install: true
 script: mvn clean package -DskipTests=true
